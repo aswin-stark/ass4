@@ -43,8 +43,9 @@
           From premium dry cleaning to swift wash and fold, we deliver care and
           convenience.
         </p>
-
-        <button>Book a Service Today</button>
+        <div class="cart-box" id="booking-section">
+          <button onclick="scrollToBooking()">Book a Service Today</button>
+        </div>
       </div>
 
       <div class="hero-image">
@@ -172,11 +173,12 @@
       </div>
 
       <div class="newsletter-right">
-        <input type="text" placeholder="Full name" />
+        <input type="text" id="newsletterName" placeholder="Full name" />
+        <input type="email" id="newsletterEmail" placeholder="Email" />
 
-        <input type="email" placeholder="Email" />
+        <button onclick="subscribeNewsletter()">Subscribe</button>
 
-        <button>Subscribe</button>
+        <p id="newsletterMessage"></p>
       </div>
     </section>
 
