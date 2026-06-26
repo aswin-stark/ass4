@@ -518,3 +518,9 @@ footer i:hover {
     font-size: 24px;
   }
 }
+#bookingMessage {
+  color: green;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: opacity 0.5s ease;
+}

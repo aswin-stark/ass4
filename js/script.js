@@ -102,12 +102,13 @@ function renderCart() {
 
 // Smooth scroll to booking section
 
+// Smoothly scroll to the Our Services section
 function scrollToBooking() {
-  document.getElementById("booking-section").scrollIntoView({
+  document.getElementById("services-section").scrollIntoView({
     behavior: "smooth",
+    block: "start",
   });
 }
-
 // Validate booking form and send email
 
 function bookNow() {
@@ -156,24 +157,31 @@ function bookNow() {
   emailjs
     .send("service_laundry", "template_qpj1qsp", templateParams)
     .then(() => {
-      document.getElementById("bookingMessage").innerText =
+      const bookingMessage = document.getElementById("bookingMessage");
+
+      bookingMessage.style.color = "green";
+      bookingMessage.style.opacity = "1";
+      bookingMessage.innerText =
         "Thank you For Booking the Service We will get back to you soon!";
 
       document.getElementById("name").value = "";
-
       document.getElementById("email").value = "";
-
       document.getElementById("phone").value = "";
 
       cart = [];
-
       renderCart();
       renderServices();
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
 
-      alert("Email could not be sent.");
+      document.getElementById("totalAmount").innerText = "0.00";
+
+      setTimeout(() => {
+        bookingMessage.style.opacity = "0";
+
+        setTimeout(() => {
+          bookingMessage.innerText = "";
+          bookingMessage.style.opacity = "1";
+        }, 500);
+      }, 3000);
     });
 }
 
